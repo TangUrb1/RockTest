@@ -6,4 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".PlayActivity">
 
+    <TextView
+        android:id="@+id/questionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/question1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow>
+
+            <RadioButton
+                android:id="@+id/firstAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                tools:text="Première réponse" />
+
+            <RadioButton
+                android:id="@+id/secondeAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                tools:text="Deuxième réponse" />
+        </TableRow>
+
+        <TableRow>
+
+            <RadioButton
+                android:id="@+id/thirdAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                tools:text="Troisième réponse"/>
+
+            <RadioButton
+                android:id="@+id/fourthAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                tools:text="Quatrième réponse" />
+        </TableRow>
+    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>

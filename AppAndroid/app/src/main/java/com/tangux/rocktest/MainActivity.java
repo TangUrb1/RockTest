@@ -15,8 +15,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ImageView titleImageView;
-    private Button playButton, settingsButton;
-    private TextView descriptionTextView;
+    private Button playButton, settingsButton, aboutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +26,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         titleImageView = findViewById(R.id.titleImageView);
         playButton = findViewById(R.id.playButton);
         settingsButton = findViewById(R.id.settingsButton);
-        descriptionTextView = findViewById(R.id.descriptionTextView);
+        aboutButton = findViewById(R.id.aboutButton);
 
         final Animation titleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.titlepop);
         final Animation playButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.playbuttonpop);
         final Animation settingsButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.settingsbuttonpop);
-        final Animation descriptionAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.descriptionpop);
+        final Animation aboutButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.aboutbuttonpop);
 
         titleAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -78,8 +77,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                descriptionTextView.setVisibility(View.VISIBLE);
-                descriptionTextView.startAnimation(descriptionAnimation);
+                aboutButton.setVisibility(View.VISIBLE);
+                aboutButton.startAnimation(aboutButtonAnimation);
             }
 
             @Override
@@ -92,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         settingsButton.setOnClickListener(this);
         playButton.setOnClickListener(this);
+        aboutButton.setOnClickListener(this);
     }
 
     @Override
@@ -104,6 +104,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.settingsButton:
                 Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(settingsIntent);
+                break;
+            case R.id.aboutButton:
+                Intent aboutIntent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(aboutIntent);
 
         }
     }

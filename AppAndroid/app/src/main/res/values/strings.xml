@@ -6,4 +6,6 @@
     <string name="language">Langue</string>
     <string name="french">Français</string>
     <string name="english">Anglais</string>
+    <string name="question1">Quel est le titre de cette musique ?</string>
+    <string name="about">A Propos</string>
 </resources>

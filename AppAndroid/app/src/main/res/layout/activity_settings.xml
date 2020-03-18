@@ -46,16 +46,4 @@
             android:textSize="18sp" />
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/appVersion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:text=""
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Version de l'application" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
