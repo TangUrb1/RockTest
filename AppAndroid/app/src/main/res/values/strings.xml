@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">BlindTest</string>
+    <string name="app_name" translatable="false">BlindTest</string>
     <string name="play">Jouer</string>
     <string name="settings">Paramètres</string>
-    <string name="description">By TanguX from 720d</string>
+    <string name="description">Par TanguX de 720d</string>
+    <string name="language">Langue</string>
+    <string name="french">Français</string>
+    <string name="english">Anglais</string>
 </resources>

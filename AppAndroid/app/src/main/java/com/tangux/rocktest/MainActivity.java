@@ -2,6 +2,7 @@ package com.tangux.rocktest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -11,7 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ImageView titleImageView;
     private Button playButton, settingsButton;
@@ -88,5 +89,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
         titleImageView.startAnimation(titleAnimation);
+
+        settingsButton.setOnClickListener(this);
+        playButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.playButton:
+                Intent playIntent = new Intent(MainActivity.this, PlayActivity.class);
+                startActivity(playIntent);
+                break;
+            case R.id.settingsButton:
+                Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(settingsIntent);
+
+        }
     }
 }

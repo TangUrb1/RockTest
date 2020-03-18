@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="play">Play</string>
+    <string name="settings">Settings</string>
+    <string name="description">By TanguX from 720d</string>
+    <string name="language">Language</string>
+    <string name="french">French</string>
+    <string name="english">English</string>
+</resources>
