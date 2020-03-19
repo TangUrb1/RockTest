@@ -9,4 +9,8 @@
     <string name="question1">Quel est le titre de cette musique ?</string>
     <string name="about">A Propos</string>
     <string name="question" translatable="false">Question</string>
+    <string name="difficulty">Choisissez une difficulté :</string>
+    <string name="goodanswer">Bonne Réponse !</string>
+    <string name="badanswer">Mauvaise réponse... C\'était :</string>
+    <string name="nextquestion">Question suivante</string>
 </resources>

@@ -8,4 +8,8 @@
     <string name="english">English</string>
     <string name="question1">What\'s the title of this song ?</string>
     <string name="about">About</string>
+    <string name="difficulty">Choose a difficulty :</string>
+    <string name="goodanswer">Good Job !</string>
+    <string name="badanswer">Oh sorry... It was :</string>
+    <string name="nextquestion">Next question</string>
 </resources>

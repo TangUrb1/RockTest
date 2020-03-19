@@ -1,0 +1,218 @@
+{
+    "easy":[
+        {
+            "title":"Blue",
+            "singer":"Eiffel65",
+            "path":"blue",
+            "answers": [
+                "Blue",
+                "Red",
+                "Dabude Dabuda",
+                "JCVD"
+            ]
+        },
+        {
+            "title":"Seven Nation Army",
+            "singer":"The White Stripes",
+            "path":"sevennationarmy",
+            "answers": [
+                "Seven Nation Army",
+                "Blue Orchid",
+                "La chanson du Stade de France",
+                "One"
+            ]
+        },
+        {
+            "title":"Zombie",
+            "singer":"The Cranberries",
+            "path":"zombie",
+            "answers": [
+                "Zombie",
+                "Plante",
+                "Ode To My Family",
+                "The Cranberries"
+            ]
+        },
+        {
+            "title":"Barbie Girl",
+            "singer":"Aqua",
+            "path":"aqua",
+            "answers": [
+                "Barbie Girl",
+                "Hey Ken",
+                "Barbie World",
+                "De l'eau"
+            ]
+        },
+        {
+            "title":"Shape of You",
+            "singer":"Ed Sheeran",
+            "path":"shapeofyou",
+            "answers": [
+                "Shape of You",
+                "Onizuka",
+                "Yesterday",
+                "Prefect"
+            ]
+        },
+        {
+            "title":"Wannabe",
+            "singer":"Spice Girls",
+            "path":"wannabe",
+            "answers": [
+                "Wannabe",
+                "Wanna be",
+                "Ouanabi",
+                "Wazabi"
+            ]
+        },
+        {
+            "title":"Say My Name",
+            "singer":"Destiny's Child",
+            "path":"saymyname",
+            "answers": [
+                "Say My Name",
+                "Single Lady",
+                "Enfants de la Destiné",
+                "Waka Waka"
+            ]
+        },
+        {
+            "title":"Viva La Vida",
+            "singer":"Coldplay",
+            "path":"vivalavida",
+            "answers": [
+                "Viva La Vida",
+                "Vive La Vie",
+                "Lecture Froide",
+                "On va s'aimer"
+            ]
+        },
+        {
+            "title":"Toxic",
+            "singer":"Brintney Spears",
+            "path":"toxic",
+            "answers": [
+                "Toxic",
+                "Christaline",
+                "Womaniser",
+                "On m'appelle l'ovni"
+            ]
+        },
+        {
+            "title":"Hallelujah",
+            "singer":"Jeff Buckley",
+            "path":"hallelujah",
+            "answers": [
+                "Hallelujah",
+                "Ave Cesar",
+                "Allahu Akbar",
+                "Starfoullah"
+            ]
+        }
+    ],
+    "medium": [
+        {
+            "title":"Under The Bridge",
+            "singer":"Red Hot Chili Peppers",
+            "path":""
+        },
+        {
+            "title":"Girl on Fire",
+            "singer":"Alicia Keys",
+            "path":""
+        },
+        {
+            "title":"Rehab",
+            "singer":"Amy Whinehouse",
+            "path":""
+        },
+        {
+            "title":"Je l'aime à mourir",
+            "singer":"Francis Cabrel",
+            "path":""
+        },
+        {
+            "title":"En feu",
+            "singer":"Soprano",
+            "path":""
+        },
+        {
+            "title":"I Was Made For Lovin' You",
+            "singer":"Kiss",
+            "path":""
+        },
+        {
+            "title":"Creep",
+            "singer":"Radiohead",
+            "path":""
+        },
+        {
+            "title":"Polly",
+            "singer":"Nirvana",
+            "path":""
+        },
+        {
+            "title":"Aimer jusqu'à l'impossible",
+            "singer":"Tina Arena",
+            "path":""
+        },
+        {
+            "title":"Bring Me To Life",
+            "singer":"Evanescance",
+            "path":""
+        }
+    ],
+    "hard": [
+        {
+            "title":"Aux sombres héros de l'amer",
+            "singer":"Noir Désir",
+            "path":""
+        },
+        {
+            "title":"Whatever it Takes",
+            "singer":"Imagine Dragon",
+            "path":""
+        },
+        {
+            "title":"Les histoires d'A.",
+            "singer":"Les Rita Mistouko",
+            "path":""
+        },
+        {
+            "title":"Dream On",
+            "singer":"Aerosmith",
+            "path":""
+        },
+        {
+            "title":"Run Boy Run",
+            "singer":"Woodkid",
+            "path":""
+        },
+        {
+            "title":"Enter Sandman",
+            "singer":"Metallica",
+            "path":""
+        },
+        {
+            "title":"la Douille",
+            "singer":"Sexion d'Assaut",
+            "path":""
+        },
+        {
+            "title":"La Foule",
+            "singer":"Edith Piaf",
+            "path":""
+        },
+        {
+            "title":"La Madrague",
+            "singer":"Brigitte Bardot",
+            "path":""
+        },
+        {
+            "title":"Kashmir",
+            "singer":"Led Zppelin",
+            "path":""
+        }
+    ]
+}

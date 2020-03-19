@@ -2,6 +2,10 @@ package com.tangux.rocktest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,10 +16,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+
+import static android.app.PendingIntent.getActivity;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ImageView titleImageView;
     private Button playButton, settingsButton, aboutButton;
+    private JSONObject musicJson;
+    private String[] difficulties;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         playButton = findViewById(R.id.playButton);
         settingsButton = findViewById(R.id.settingsButton);
         aboutButton = findViewById(R.id.aboutButton);
+
+        difficulties = new String[]{"easy", "medium", "hard"};
 
         final Animation titleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.titlepop);
         final Animation playButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.playbuttonpop);
@@ -92,14 +109,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         settingsButton.setOnClickListener(this);
         playButton.setOnClickListener(this);
         aboutButton.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.playButton:
-                Intent playIntent = new Intent(MainActivity.this, PlayActivity.class);
-                startActivity(playIntent);
+                final Intent playIntent = new Intent(MainActivity.this, PlayActivity.class);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle(getString(R.string.difficulty));
+                builder.setItems(difficulties, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        playIntent.putExtra("difficulty", difficulties[which]);
+                        startActivity(playIntent);
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
                 break;
             case R.id.settingsButton:
                 Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
