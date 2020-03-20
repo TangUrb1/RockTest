@@ -13,6 +13,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        //Set the color of the ActionBar to orange and set the title to "settings"
         getSupportActionBar().setTitle(R.string.settings);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.rgb(227,141,71)));
     }

@@ -115,104 +115,104 @@
         {
             "title":"Under The Bridge",
             "singer":"Red Hot Chili Peppers",
-            "path":""
+            "path":"underthebridge"
         },
         {
             "title":"Girl on Fire",
             "singer":"Alicia Keys",
-            "path":""
+            "path":"girlonfire"
         },
         {
             "title":"Rehab",
             "singer":"Amy Whinehouse",
-            "path":""
+            "path":"rehab"
         },
         {
             "title":"Je l'aime à mourir",
             "singer":"Francis Cabrel",
-            "path":""
+            "path":"jelaimeamourir"
         },
         {
             "title":"En feu",
             "singer":"Soprano",
-            "path":""
+            "path":"enfeu"
         },
         {
             "title":"I Was Made For Lovin' You",
             "singer":"Kiss",
-            "path":""
+            "path":"iwasmadeforlovinyou"
         },
         {
             "title":"Creep",
             "singer":"Radiohead",
-            "path":""
+            "path":"creep"
         },
         {
             "title":"Polly",
             "singer":"Nirvana",
-            "path":""
+            "path":"polly"
         },
         {
             "title":"Aimer jusqu'à l'impossible",
             "singer":"Tina Arena",
-            "path":""
+            "path":"aimerjusqualimpossible"
         },
         {
             "title":"Bring Me To Life",
             "singer":"Evanescance",
-            "path":""
+            "path":"bringmetolife"
         }
     ],
     "hard": [
         {
             "title":"Aux sombres héros de l'amer",
             "singer":"Noir Désir",
-            "path":""
+            "path":"auxsombresherosdelamer"
         },
         {
             "title":"Whatever it Takes",
             "singer":"Imagine Dragon",
-            "path":""
+            "path":"whateverittakes"
         },
         {
             "title":"Les histoires d'A.",
             "singer":"Les Rita Mistouko",
-            "path":""
+            "path":"leshistoiresda"
         },
         {
             "title":"Dream On",
             "singer":"Aerosmith",
-            "path":""
+            "path":"dreamon"
         },
         {
-            "title":"Run Boy Run",
-            "singer":"Woodkid",
-            "path":""
+            "title":"Bounce",
+            "singer":"System Of A Down",
+            "path":"bounce"
         },
         {
             "title":"Enter Sandman",
             "singer":"Metallica",
-            "path":""
+            "path":"entersandman"
         },
         {
             "title":"la Douille",
             "singer":"Sexion d'Assaut",
-            "path":""
+            "path":"ladouille"
         },
         {
             "title":"La Foule",
             "singer":"Edith Piaf",
-            "path":""
+            "path":"lafoule"
         },
         {
             "title":"La Madrague",
             "singer":"Brigitte Bardot",
-            "path":""
+            "path":"lamadrague"
         },
         {
             "title":"Kashmir",
             "singer":"Led Zppelin",
-            "path":""
+            "path":"kashmir"
         }
     ]
 }

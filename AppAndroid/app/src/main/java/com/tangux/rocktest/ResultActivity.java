@@ -35,11 +35,13 @@ public class ResultActivity extends AppCompatActivity {
 
         srcIntent = getIntent();
 
+        //get the number of good and wrong answer from the PlayActivity
         correctAnswers = srcIntent.getIntExtra("goodAnswers",1);
         wrongAnswers = srcIntent.getIntExtra("totalQuestions", 1) - correctAnswers;
 
         showResult();
 
+        //finish the activity when clicked on the button
         endGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +50,7 @@ public class ResultActivity extends AppCompatActivity {
         });
     }
 
+    //Display a bar according to the result (percentage) and display number of correct and wrong answers et display a message according to result
     public void showResult() {
 
         progressBar.setMax(srcIntent.getIntExtra("totalQuestions", 1));

@@ -4,11 +4,13 @@ import java.util.List;
 
 public class Music {
 
+    //Set the object Music
     String title;
     String singer;
     String path;
     List<String> answers;
 
+    //Getter / Setter of each parameter
     public List<String> getAnswers() {
         return answers;
     }

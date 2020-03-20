@@ -54,21 +54,26 @@ public class PlayActivity extends AppCompatActivity {
         countQuestion = 1;
         correctAnswered = 0;
 
+        //Initialisation of each ArrayList
         easyJSON = new ArrayList<>();
         mediumJSON = new ArrayList<>();
         hardJSON = new ArrayList<>();
 
         testMusics = new ArrayList<>();
 
+        //Get the parameters the last activity sent
         srcIntent = getIntent();
 
+        //Change the color of the ActionBar to orange
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.rgb(227,141,71)));
 
+        //Set each element of the view
         textCurrentPosition = findViewById(R.id.currentTimeTextView);
         questionTextView = findViewById(R.id.questionTextView);
         answerTextView = findViewById(R.id.answerTextView);
         titleTextView = findViewById(R.id.titleTextView);
 
+        //Set onClick events
         playButton = findViewById(R.id.playButton);
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +111,9 @@ public class PlayActivity extends AppCompatActivity {
         });
 
         nextQuestion = findViewById(R.id.nextButton);
+        //This button will not be able to be pressed
         nextQuestion.setEnabled(false);
+        //If we are on the tenth question, then we show the results
         nextQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,6 +128,7 @@ public class PlayActivity extends AppCompatActivity {
 
         threadHandler = new Handler();
 
+        //Instance a seekBar for the mediaPlayer that will not be able to be clickable
         seekBar = findViewById(R.id.seekBar);
         seekBar.setClickable(false);
 
@@ -128,12 +136,15 @@ public class PlayActivity extends AppCompatActivity {
 
 
         try {
+            //Get the json file from the directory assets to an json object
             musicJSON = new JSONObject(loadJSONFromAssets(PlayActivity.this));
+            //Get the json array of each difficulty in the json object
             easy = musicJSON.getJSONArray("easy");
             medium = musicJSON.getJSONArray("medium");
             hard = musicJSON.getJSONArray("hard");
 
 
+            //Create a list of Music object according the difficulty chosen in the last view
             switch (srcIntent.getStringExtra("difficulty")) {
 
                 case "easy":
@@ -186,30 +197,36 @@ public class PlayActivity extends AppCompatActivity {
                     }
                     break;
             }
+            //Shuffle / randomise the list of object Music
             Collections.shuffle(testMusics);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         launchTest();
+        //Boolean to know if the song is playing
         isPlaying = false;
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        //Stop the activity if we go back
         finish();
     }
 
     public void launchTest() {
-        getSupportActionBar().setTitle(srcIntent.getStringExtra("difficulty").toUpperCase() + " - " + getString(R.string.question) + " " + countQuestion);
+        //Set the title of the ActionBar to the difficulty chosen + the number of current question
+        getSupportActionBar().setTitle(srcIntent.getStringExtra("difficulty").toUpperCase() + " - " + getString(R.string.question) + " " + countQuestion + "/10");
 
+        //Get the songId according to current question number to get the information of the current song (title, artist, path and possible answers)
         currentMusic = testMusics.get(countQuestion - 1);
         int songId = getRawResIdByName(currentMusic.path);
         mediaPlayer = MediaPlayer.create(PlayActivity.this, songId);
         mediaPlayer.seekTo(30000);
         Log.i("musique", ""+songId);
 
+        //Shuffle the list of answers and display it on each button
         Collections.shuffle(currentMusic.answers);
 
         firstAnswer.setText(currentMusic.answers.get(0));
@@ -218,6 +235,7 @@ public class PlayActivity extends AppCompatActivity {
         fourthAnswer.setText(currentMusic.answers.get(3));
     }
 
+    //Function to get the JSON file from the directory asssets
     public String loadJSONFromAssets(Context context) {
 
         String json = null;
@@ -238,6 +256,7 @@ public class PlayActivity extends AppCompatActivity {
         return json;
     }
 
+    //Function to get the id of a file (in that case a song) according to the name of the file
     public int getRawResIdByName(String resName) {
 
         String pkgName = getPackageName();
@@ -245,6 +264,7 @@ public class PlayActivity extends AppCompatActivity {
         return resID;
     }
 
+    //Transform the time to a string
     private String millisecondsToString(int milliseconds) {
 
         long minutes = TimeUnit.MILLISECONDS.toMinutes((long) milliseconds);
@@ -254,9 +274,10 @@ public class PlayActivity extends AppCompatActivity {
 
     public void doStart() {
 
-        int currentPosition = mediaPlayer.getCurrentPosition();
+        //Set the max length of the seekbar to 60 seconds
         seekBar.setMax(60000);
 
+        //Set a timer of 30 seconds, at the end of it, the song will stop
         musicTimer = new CountDownTimer(30000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -280,6 +301,7 @@ public class PlayActivity extends AppCompatActivity {
         playButton.setEnabled(false);
     }
 
+    //Set the seekBar thread according to the current position of the song
     class UpdateSeekBarThread implements Runnable {
 
         public void run() {
@@ -292,6 +314,7 @@ public class PlayActivity extends AppCompatActivity {
         }
     }
 
+    //Check the answer, if it's a good one -> +1 on correctAnswers and display a good text, otherwise display a bad text
     public void checkAnswer(Button buttonPressed) {
 
 
@@ -309,6 +332,7 @@ public class PlayActivity extends AppCompatActivity {
             answerTextView.setText(getString(R.string.badanswer));
         }
 
+        //Don't show the answer of the question on another view, just hide the element of the question and display the answer
         questionTextView.setVisibility(View.INVISIBLE);
         seekBar.setVisibility(View.INVISIBLE);
         textCurrentPosition.setVisibility(View.INVISIBLE);
@@ -327,6 +351,7 @@ public class PlayActivity extends AppCompatActivity {
         answerTextView.setVisibility(View.VISIBLE);
         titleTextView.setVisibility(View.VISIBLE);
 
+        //Set the text of the button to "next question", or if it was the last question to "end game"
         if(countQuestion == 10){
             nextQuestion.setText(getString(R.string.endgame));
         }
@@ -334,6 +359,7 @@ public class PlayActivity extends AppCompatActivity {
         nextQuestion.setEnabled(true);
     }
 
+    //Reverse, hide the element of the answer and display the next question
     public void nextQuestion() {
         countQuestion++;
         answerTextView.setVisibility(View.INVISIBLE);
@@ -358,6 +384,8 @@ public class PlayActivity extends AppCompatActivity {
         launchTest();
     }
 
+    //If it was the last question, after the answer, go to another view to display the results of the test
+    //And finish the activity
     public void showResult() {
         Intent resultIntent = new Intent(PlayActivity.this, ResultActivity.class);
         resultIntent.putExtra("goodAnswers", correctAnswered);

@@ -36,6 +36,7 @@ public class QuestionsActivity extends AppCompatActivity {
         mediumJSON = new ArrayList<>();
         hardJSON = new ArrayList<>();
 
+        //Create a list with all of the song on the json file
         try {
             musicJSON = new JSONObject(loadJSONFromAssets(QuestionsActivity.this));
             easy = musicJSON.getJSONArray("easy");
@@ -87,6 +88,7 @@ public class QuestionsActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //Display the list of music on the recycler view
         adapter = new QuestionAdapter(musicList);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
@@ -95,6 +97,7 @@ public class QuestionsActivity extends AppCompatActivity {
 
     }
 
+    //Get the json file from the directory assets
     public String loadJSONFromAssets(Context context) {
 
         String json = null;

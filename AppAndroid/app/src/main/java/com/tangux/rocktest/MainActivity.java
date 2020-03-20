@@ -38,20 +38,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
+        // Recuperation of the elemont of the main view
         titleImageView = findViewById(R.id.titleImageView);
         playButton = findViewById(R.id.playButton);
         settingsButton = findViewById(R.id.settingsButton);
         aboutButton = findViewById(R.id.aboutButton);
         listButton = findViewById(R.id.questionsButton);
 
+        //Set a lst of difficulties
         difficulties = new String[]{"easy", "medium", "hard"};
 
+        //Load of the animation of every buttons
         final Animation titleAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.titlepop);
         final Animation playButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.playbuttonpop);
         final Animation settingsButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.settingsbuttonpop);
         final Animation aboutButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.aboutbuttonpop);
         final Animation listButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.listbuttonpop);
 
+        //Then, set an AnimationListener to set a "chain" of appearance for the buttons
+        //One by one
         titleAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -124,8 +129,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        //And then we start the animation at the start of the Activity
         titleImageView.startAnimation(titleAnimation);
 
+        //Set the onClick events
         settingsButton.setOnClickListener(this);
         playButton.setOnClickListener(this);
         aboutButton.setOnClickListener(this);
@@ -133,12 +140,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //Do something different according to the pressed button's id
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.playButton:
+                //Create an intent to start another activity
                 final Intent playIntent = new Intent(MainActivity.this, PlayActivity.class);
 
+                //Display an AlertDialog to choose the difficulty of the game and then share it with the activity which will start
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle(getString(R.string.difficulty));
                 builder.setItems(difficulties, new DialogInterface.OnClickListener() {
