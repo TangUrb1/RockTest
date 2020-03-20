@@ -13,4 +13,14 @@
     <string name="goodanswer">Bonne Réponse !</string>
     <string name="badanswer">Mauvaise réponse... C\'était :</string>
     <string name="nextquestion">Question suivante</string>
+    <string name="endgame">Fin du Jeu</string>
+    <string name="results">Voici vos resultats</string>
+    <string name="correctResult">Bonne réponses :</string>
+    <string name="wrongResult">Mauvaises réponses :</string>
+    <string name="awesome">Bravo ! Vous avez fini avec brio !</string>
+    <string name="thatisgood">Très bon résultats !</string>
+    <string name="notbad">C\'est pas mal mais tu peux mieux faire</string>
+    <string name="notgood">C\'est pas ouf ça</string>
+    <string name="sobad">Ah ouais tu es nul en fait...</string>
+    <string name="resultstitle">Résultats</string>
 </resources>

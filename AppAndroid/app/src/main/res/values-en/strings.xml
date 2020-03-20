@@ -12,4 +12,14 @@
     <string name="goodanswer">Good Job !</string>
     <string name="badanswer">Oh sorry... It was :</string>
     <string name="nextquestion">Next question</string>
+    <string name="endgame">This is it !</string>
+    <string name="results">Here are your results</string>
+    <string name="correctResult">Correct answers :</string>
+    <string name="wrongResult">Wrong answers :</string>
+    <string name="awesome">Congratulations ! You did it perfect !</string>
+    <string name="thatisgood">Nice one !</string>
+    <string name="notbad">I know you can do it better</string>
+    <string name="notgood">You are a bit bad, no ?</string>
+    <string name="sobad">It\'s starting smelling shit</string>
+    <string name="resultstitle">Results</string>
 </resources>

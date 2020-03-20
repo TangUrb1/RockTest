@@ -43,6 +43,7 @@ public class PlayActivity extends AppCompatActivity {
     private Music currentMusic;
     private Intent srcIntent;
     private CountDownTimer musicTimer;
+    private Boolean isPlaying;
 
 
     @Override
@@ -109,7 +110,12 @@ public class PlayActivity extends AppCompatActivity {
         nextQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextQuestion();
+                if(countQuestion < 10){
+                    nextQuestion();
+                } else {
+                    showResult();
+                }
+
             }
         });
 
@@ -186,6 +192,7 @@ public class PlayActivity extends AppCompatActivity {
         }
 
         launchTest();
+        isPlaying = false;
     }
 
     @Override
@@ -255,11 +262,14 @@ public class PlayActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 mediaPlayer.start();
                 playButton.setEnabled(false);
+                isPlaying = true;
             }
 
             @Override
             public void onFinish() {
                 mediaPlayer.stop();
+                musicTimer.cancel();
+                isPlaying = false;
                 playButton.setEnabled(true);
             }
         };
@@ -284,9 +294,11 @@ public class PlayActivity extends AppCompatActivity {
 
     public void checkAnswer(Button buttonPressed) {
 
-        mediaPlayer.stop();
-        mediaPlayer.reset();
-        musicTimer.cancel();
+        if(isPlaying == true){
+            mediaPlayer.stop();
+            mediaPlayer.reset();
+            musicTimer.cancel();
+        }
 
         if(buttonPressed.getText().equals(currentMusic.title)) {
             correctAnswered++;
@@ -313,6 +325,10 @@ public class PlayActivity extends AppCompatActivity {
         titleTextView.setText(currentMusic.title + " - " + currentMusic.singer);
         answerTextView.setVisibility(View.VISIBLE);
         titleTextView.setVisibility(View.VISIBLE);
+
+        if(countQuestion == 10){
+            nextQuestion.setText(getString(R.string.endgame));
+        }
         nextQuestion.setVisibility(View.VISIBLE);
         nextQuestion.setEnabled(true);
     }
@@ -339,5 +355,13 @@ public class PlayActivity extends AppCompatActivity {
         fourthAnswer.setEnabled(true);
 
         launchTest();
+    }
+
+    public void showResult() {
+        Intent resultIntent = new Intent(PlayActivity.this, ResultActivity.class);
+        resultIntent.putExtra("goodAnswers", correctAnswered);
+        resultIntent.putExtra("totalQuestions", countQuestion);
+        startActivity(resultIntent);
+        finish();
     }
 }
