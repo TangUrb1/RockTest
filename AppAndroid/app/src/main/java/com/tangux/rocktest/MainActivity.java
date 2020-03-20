@@ -28,7 +28,7 @@ import static android.app.PendingIntent.getActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ImageView titleImageView;
-    private Button playButton, settingsButton, aboutButton;
+    private Button playButton, settingsButton, aboutButton, listButton;
     private JSONObject musicJson;
     private String[] difficulties;
 
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         playButton = findViewById(R.id.playButton);
         settingsButton = findViewById(R.id.settingsButton);
         aboutButton = findViewById(R.id.aboutButton);
+        listButton = findViewById(R.id.questionsButton);
 
         difficulties = new String[]{"easy", "medium", "hard"};
 
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         final Animation playButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.playbuttonpop);
         final Animation settingsButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.settingsbuttonpop);
         final Animation aboutButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.aboutbuttonpop);
+        final Animation listButtonAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.listbuttonpop);
 
         titleAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -69,6 +71,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         playButtonAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                listButton.setVisibility(View.VISIBLE);
+                listButton.startAnimation(listButtonAnimation);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        listButtonAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -109,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         settingsButton.setOnClickListener(this);
         playButton.setOnClickListener(this);
         aboutButton.setOnClickListener(this);
+        listButton.setOnClickListener(this);
 
     }
 
@@ -137,6 +158,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.aboutButton:
                 Intent aboutIntent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(aboutIntent);
+                break;
+            case R.id.questionsButton:
+                Intent questionsIntent = new Intent(MainActivity.this, QuestionsActivity.class);
+                startActivity(questionsIntent);
+                break;
 
         }
     }

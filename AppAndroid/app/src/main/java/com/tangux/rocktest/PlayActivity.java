@@ -294,6 +294,7 @@ public class PlayActivity extends AppCompatActivity {
 
     public void checkAnswer(Button buttonPressed) {
 
+
         if(isPlaying == true){
             mediaPlayer.stop();
             mediaPlayer.reset();
